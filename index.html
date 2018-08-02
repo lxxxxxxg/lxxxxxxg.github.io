@@ -252,6 +252,275 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/18/MAC重装系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lxxxxxxg">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lxxxxxxg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/18/MAC重装系统/" itemprop="url">MAC重装系统</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-18T19:41:37+08:00">
+                2018-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="创建可引导的-macOS-安装器"><a href="#创建可引导的-macOS-安装器" class="headerlink" title="创建可引导的 macOS 安装器"></a>创建可引导的 macOS 安装器</h1><p>可以将外置驱动器或备用分区用作从中安装 Mac 操作系统的启动磁盘。<br>如果您要在多台电脑上安装 macOS 而不希望每次都下载安装器，则可引导安装器会非常有用。当您的 Mac 从可引导安装器启动时，它会直接启动到 macOS 安装器，并且不需要互联网连接即可完成安装。<br>以下高级步骤主要适用于系统管理员以及熟悉命令行的其他人员。不必创建可引导安装器即可<a href="https://support.apple.com/zh-cn/HT204904" target="_blank" rel="noopener">安装 macOS</a>。</p>
+<h1 id="从-App-Store-下载-macOS"><a href="#从-App-Store-下载-macOS" class="headerlink" title="从 App Store 下载 macOS"></a>从 App Store 下载 macOS</h1><ol>
+<li>从 App Store 下载 macOS。要进行下载，请使用与您要下载的 macOS 版本兼容的 Mac。<br>如果您要下载 macOS High Sierra，请使用装有 High Sierra、Sierra 10.12.5 或更高版本或者 El Capitan 10.11.6 的 Mac。企业管理员：请从 Apple 而不是从本地托管的软件更新服务器进行下载。</li>
+<li>macOS 安装器打开后，请退出而不要继续安装。</li>
+<li>在“应用程序”文件夹中找到单个“Install”文件形式的安装器，例如“Install macOS High Sierra”。</li>
+</ol>
+<h1 id="在“终端”中使用“createinstallmedia”命令"><a href="#在“终端”中使用“createinstallmedia”命令" class="headerlink" title="在“终端”中使用“createinstallmedia”命令"></a>在“终端”中使用“createinstallmedia”命令</h1><ol>
+<li>下载安装器后，请将 Mac 连接到 USB 闪存驱动器或其他将用作可引导安装器的宗卷。确保该驱动器至少有 12 GB 可用储存空间。</li>
+<li>打开“应用程序”文件夹内“实用工具”文件夹中的“终端”。</li>
+<li><p>在“终端”中键入或粘贴以下命令之一。这些命令假设安装器仍位于您的“应用程序”文件夹中，并且您的宗卷名称是“MyVolume”。如果该宗卷名称不是“MyVolume”，请将MyVolume 替换为相应的名称。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">1. High Sierra：</span><br><span class="line">sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ macOS\ High\ Sierra.app</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Sierra：</span><br><span class="line">sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ macOS\ Sierra.app</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">El Capitan：</span><br><span class="line">sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Yosemite：</span><br><span class="line">sudo /Applications/Install\ OS\ X\ Yosemite.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ OS\ X\ Yosemite.app</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Mavericks：</span><br><span class="line">sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ OS\ X\ Mavericks.app</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>键入相应的命令后，请按下 Return 键。</p>
+</li>
+<li>根据提示键入您的管理员密码，然后再次按下 Return 键。在您键入密码时，“终端”不显示任何字符。</li>
+<li>系统提示时，请键入 Y 以确认您要抹掉宗卷，然后按下 Return 键。创建可引导安装器过程中，“终端”将显示进度。</li>
+<li>完成后，请退出“终端”。</li>
+</ol>
+<h1 id="使用可引导安装器"><a href="#使用可引导安装器" class="headerlink" title="使用可引导安装器"></a>使用可引导安装器</h1><ol>
+<li>将包含可引导安装器的宗卷连接到兼容的 Mac。</li>
+<li>使用“启动磁盘”偏好设置或“启动管理器”将该宗卷选择为启动磁盘。了解如何选择启动磁盘，包括当您的 Mac 无法从启动磁盘启动时该怎么做。</li>
+<li>随后，您的 Mac 将直接启动到 macOS 安装器。请按照屏幕上的说明来安装 macOS</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/15/在既有类中使用关联对象存放自定义数据/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lxxxxxxg">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lxxxxxxg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/15/在既有类中使用关联对象存放自定义数据/" itemprop="url">在既有类中使用关联对象存放自定义数据</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T20:00:03+08:00">
+                2017-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>需要在对象中存放相关信息，从对象所属的类中集成一个子类，然后改用子类。<br>有的类的实例是由某种机制所创建的， 无法在这种机制下创建自己所写的子类。<br>可以使用OC的关联对象（Associa Object）来解决这个问题</p>
+<p>给对象关联许多其他其他对象，对象通过键来区分， 在存储对象值的时候可以做指明存储策略，用以维护相应的内存管理语义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">OBJC_ASSOCIATION_ASSIGN assign</span><br><span class="line">OBJC_ASSOCIATION_RETAIN_NONATOMIC nonatomic retain</span><br><span class="line">OBJC_ASSOCIATION_COPY_NONATOMIC noatomic copy</span><br><span class="line">OBJC_ASSOCIATION_RETAIN retain</span><br><span class="line">OBJC_ASSOCIATION_COPY copy</span><br></pre></td></tr></table></figure>
+<p>使用下列方法可以管理关联对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void objc_setAssocitedObject(id Object, void*key,id value ,objc_AssociationPolicy policy)</span><br><span class="line">//以给定的键和策略为某对象 设置关联对象值</span><br><span class="line">id objc_getAssociationObject(id Object, void *key)</span><br><span class="line">//根据给定的键从获取相应的关联对象值</span><br><span class="line">void objc_removeAssociationObjects(id object)</span><br><span class="line">//移除制定对象的全部关联对象</span><br></pre></td></tr></table></figure></p>
+<p>可以把某对象想象成NSDictionary 把关联到该对象的值理解为字典中的条目，<br>设置关联对象时用的键是个不透明的指针 。若想量两个键匹配到同一个值，则两者必须是完全相同的指针才行，<br>在设置关联对象是，通常使用静态全局变量做键。</p>
+<p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void (^block)(NSInteger) = ^ (NSInteger buttonIndex)&#123;&#125;;</span><br><span class="line">objc_setAssocitedObject（alert， EOCMyAlertViewKey，block，OBJC_ASSOCIATION_COPY）；</span><br></pre></td></tr></table></figure></p>
+<p>要点： 可以通过关联对象机制把两个对象练起来<br>定义管理对象时可制定内存管理语义，用以模仿定义属性时所采用的拥有关系与非拥有关系<br>只有在其他做法都不行时，才选用关联对象</p>
+<p>实例：给category添加属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">// 定义属性</span><br><span class="line">@property (nonatomic, copy) NSString *headImageUrl;</span><br><span class="line">@property (nonatomic, copy) NSString *infoID;</span><br><span class="line">@property (nonatomic, copy) NSString *iconImageUrl;</span><br><span class="line"></span><br><span class="line">// 定义静态字符串</span><br><span class="line">static NSString *infoIDKey = @&quot;infoIDKey&quot;;</span><br><span class="line">static NSString *headImageUrlKey = @&quot;headImageUrlKey&quot;;</span><br><span class="line">static NSString *iconImageUrlKey = @&quot;iconImageUrlKey”;// 占位文字</span><br><span class="line"></span><br><span class="line">static const void *WZBPlaceholderViewKey = &amp;WZBPlaceholderViewKey;</span><br><span class="line">// 占位文字颜色</span><br><span class="line">static const void *WZBPlaceholderColorKey = &amp;WZBPlaceholderColorKey;</span><br><span class="line">// 最大高度</span><br><span class="line">static const void *WZBTextViewMaxHeightKey = &amp;WZBTextViewMaxHeightKey;</span><br><span class="line">// 最小高度</span><br><span class="line">static const void *WZBTextViewMinHeightKey = &amp;WZBTextViewMinHeightKey;</span><br><span class="line"></span><br><span class="line">@implementation MAShape (xmModel)</span><br><span class="line"></span><br><span class="line">- (NSString *)infoID</span><br><span class="line">&#123;</span><br><span class="line">    return objc_getAssociatedObject(self, &amp;infoIDKey);</span><br><span class="line">&#125;</span><br><span class="line">- (void)setInfoID:(NSString *)infoID</span><br><span class="line">&#123;</span><br><span class="line">    objc_setAssociatedObject(self, &amp;infoIDKey, infoID, OBJC_ASSOCIATION_COPY);</span><br><span class="line">&#125;</span><br><span class="line">- (NSString *)headImageUrl</span><br><span class="line">&#123;</span><br><span class="line">    return objc_getAssociatedObject(self, &amp;headImageUrlKey);</span><br><span class="line">&#125;</span><br><span class="line">- (void)setHeadImageUrl:(NSString *)headImageUrl</span><br><span class="line">&#123;</span><br><span class="line">    objc_setAssociatedObject(self, &amp;headImageUrlKey, headImageUrl, OBJC_ASSOCIATION_COPY);</span><br><span class="line">&#125;</span><br><span class="line">- (NSString *)iconImageUrl</span><br><span class="line">&#123;</span><br><span class="line">    return objc_getAssociatedObject(self, &amp;iconImageUrlKey);</span><br><span class="line">&#125;</span><br><span class="line">- (void)setIconImageUrl:(NSString *)iconImageUrl</span><br><span class="line">&#123;</span><br><span class="line">    objc_setAssociatedObject(self, &amp;iconImageUrlKey, iconImageUrl, OBJC_ASSOCIATION_COPY);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/29/mac生成ssh公钥/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -667,7 +936,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -680,7 +949,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
